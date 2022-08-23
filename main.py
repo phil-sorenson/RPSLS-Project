@@ -6,3 +6,13 @@
 # (10 points): As a player, I want the correct player to win a given round based on the choices made by each player. See Framework document for game rules!
 # (10 points): As a player, I want the game of RPSLS to be at minimum a “best of three” to decide a winner.
 # (10 points): As a player, I want the option of a single player (human vs AI) or a multiplayer (human vs human) game.
+
+# Rock crushes Scissors Scissors cuts Paper Paper covers Rock Rock crushes Lizard Lizard poisons Spock Spock smashes Scissors Scissors decapitates Lizard Lizard eats Paper
+
+from game import Game
+
+start_game = Game()
+print(start_game)
+start_game.start_game()
+
+
