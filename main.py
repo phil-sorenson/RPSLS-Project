@@ -8,7 +8,7 @@
 # (10 points): As a player, I want the option of a single player (human vs AI) or a multiplayer (human vs human) game.
 
 # Rock crushes Scissors Scissors cuts Paper Paper covers Rock Rock crushes Lizard Lizard poisons Spock Spock smashes Scissors Scissors decapitates Lizard Lizard eats Paper
-
+# Create seperate classes for each gesture in order to simplify battle (in each class identify what it loses to, wins to and ties with)
 from game import Game
 
 start_game = Game()

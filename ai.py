@@ -12,5 +12,5 @@ class AI(Player):
         return name
 
     def get_gesture(self):
-        print(self.gesture)
+        self.gesture # get length (.len) of list and get random number within that length (self.gesture[random number]--return move)
 

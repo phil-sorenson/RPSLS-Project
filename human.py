@@ -13,6 +13,5 @@ class Human(Player):
 
     def get_gesture(self):
         print('Make your move')
-        move = input() # will have to verify (move ,atches name on the list)
-        
+        move = input() # will have to verify (move matches name on the list)
         return move
