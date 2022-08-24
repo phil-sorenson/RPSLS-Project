@@ -12,10 +12,10 @@ class Player:
         self.score = 0
         pass
 
-    def get_name(self):
-        pass
+    # def get_name(self):
+    #     pass
 
-    def get_gesture(self):
-        pass
+    # def get_gesture(self):
+    #     pass
 
 

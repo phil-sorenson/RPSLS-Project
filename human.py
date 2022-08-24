@@ -15,3 +15,6 @@ class Human(Player):
         print('Make your move')
         move = input() # will have to verify (move matches name on the list)
         return move
+
+
+# Question: Will i need to put points function in the player class? 

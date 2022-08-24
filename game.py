@@ -1,4 +1,5 @@
 import time
+from ai import AI  # To delay the time between things that show on terminal
 from human import Human
 
 
@@ -7,31 +8,40 @@ class Game:
     # will need gestutres & what beats what (MIGHT BE IN PLAYER or AI)
     # will need 1-2 players (human vs human or human vs AI)
     # game is over (best out of 3)
+    
     def __init__(self):
-        print('Started init')   # Edit later
+        self.main_player = Human()
+        self.player_two = Human() or AI() # <-- ???
+        pass
+       # QUESTION-- Not sure what to put in __init__ always
 
 
     def start_game(self):
         self.game_rules()
         self.get_players()
-        self.main_player = Human()
-        self.player_two = Human() # Human or AI based on user input
-        results = self.get_gestures(self.main_player, self.player_two)
-        #another function
-        if results == 'win':
-            self.main_player.score =+1
-        elif results == 'lose':
-            self.player_two.score =+1
+        # self.main_player = Human()
+        # self.player_two = Human() or AI()    # Human or AI based on user input     QUESTION: How to give code out player_two being a human or ai based on user response??
         
-    def best_of_three(main_player_score, player_two_score):
-        #while loop until someone hits two - announce winner
+       
+       # another function (COULDNT THIS GO IN THE "Best_of_three" function?)
+       # need to create 
+       # while loop until someone hits two - announce winner
+    def best_of_three(self):
+        results = self.get_gestures(self.main_player, self.player_two)
+        if results == 'win':
+            self.main_player.score = +1
+        elif results == 'lose':
+            self.player_two.score = +1
+        
+        
+
 
 
         # Create ai class with player parent
         # Create score function
         # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
         # Function to announce winner
-    def get_gestures(self, main_player, player_two):
+    def get_gestures(self):
         player_one_move = main_player.get_gesture()
         player_two_move = player_two.get_gesture()
         results = self.gesture_battle(player_one_move, player_two_move)
@@ -50,9 +60,9 @@ class Game:
                 return 'tie'
             if move_two == 'spock':
                 print('you lose')
-                return 'lose' 
-        
-
+                return 'lose'
+        if move_one == 'Paper'
+         
         
 
     def game_rules(self):
@@ -61,6 +71,8 @@ class Game:
         print('each match will be the best of 3 games!\nUse the number keys to enter your selection.')
         time.sleep(1)
         print('Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper')
+
+        
 
     def get_players (self):
         print('Would you like to play against a human or ai? ')

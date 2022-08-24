@@ -12,7 +12,7 @@
 from game import Game
 
 start_game = Game()
-print(start_game)
+
 start_game.start_game()
 
 
