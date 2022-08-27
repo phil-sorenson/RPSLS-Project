@@ -12,6 +12,7 @@ class Game:
     def __init__(self):
         self.main_player = Human()
         self.player_two = Human() or AI() # <-- ???
+        
         pass
        # QUESTION-- Not sure what to put in __init__ always 
 
@@ -19,6 +20,9 @@ class Game:
     def start_game(self):
         self.game_rules()
         self.get_players()
+        self.get_gesture()
+        self.gesture_battle()
+        self.best_of_three()
         # self.main_player = Human()
         # self.player_two = Human() or AI()    # Human or AI based on user input     QUESTION: How to give code out player_two being a human or ai based on user response??
         
@@ -65,14 +69,15 @@ class Game:
         # Create score function
         # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
         # Function to announce winner
-    def get_gestures(self):
-        self.player_one_move = self.main_player.gesture()
+    def get_gesture(self):
+        self.main_player_move = self.main_player.gesture()
         self.player_two_move = self.player_two.gesture()
         results = self.gesture_battle()
         return results
-        # For gestures--when returing "win" or "lose" is is always just for main_player?
+    
     
     def gesture_battle(self, move_one, move_two):
+        
         if move_one == 'Rock':
             if move_two == 'scissors':
                 print('Rock beats scissors, rock wins')
@@ -102,11 +107,19 @@ class Game:
        # while loop until someone hits two - announce winner
    
     def best_of_three(self):
-        results = self.get_gestures(self.main_player, self.player_two)
+        results = self.get_gesture()  # <--- QQQ: Would this need to call 'get_gesture' or 'gesture_battle'?
         if results == 'win':
             self.main_player.score = +1
         elif results == 'lose':
             self.player_two.score = +1
+        return results
+
+    def announce_winner(self):
+        if self.main_player.score  >= 2:
+            print(f'{self.main_player.name} has won!')
+        elif self.player_two.score >= 2:
+            print(f'{self.player_two.name} has won!')
+
         
         
 
