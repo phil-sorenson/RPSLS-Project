@@ -34,21 +34,23 @@ class Game:
         time.sleep(1)
         # print('1.Rock\n2.Paper\n3.Scissor\n4.Lizard\n5.Spock') <---❓ NOT SURE ABOUT HOW TO GO ABOUT THIS 
         # time.sleep(1)
-        print('Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock')
+        print('Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock')
 
         
     def get_players (self):
         print('Would you like to play against a human or ai? ')
-        opponent = input()
+        self.player_two = input()
         checked_players = 0
-        while checked_players == 0:
-            if opponent == 'human':
+        while checked_players == 0:     # Edited opponent to be self.player_two so it calls from the AI() or Human() classes
+            if self.player_two == 'human':
                 print('human opponent')
                 checked_players = 1
+                self.player_two = Human()
                 break
-            elif opponent == 'ai':
+            elif self.player_two == 'ai':
                 print('ai opponent')
                 checked_players = 1
+                self.player_two = AI()   # <---❓IS THIS HOW TO RUN THESE OPPONENTS AS HUMAN OR AI❓
                 break
             else:
                 print('You didn\'t type in human or ai, try again!')
@@ -79,7 +81,7 @@ class Game:
         return results
     
     
-    def gesture_battle(self, move_one, move_two):  #  <---❓ move_one and move_two will should be called something else ❓
+    def gesture_battle(self, move_one, move_two): 
         
         if move_one == 'Rock':
             if move_two == 'scissors':
