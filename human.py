@@ -11,7 +11,7 @@ class Human(Player):
         name = input()
         return name
 
-    def get_gesture(self):
+    def gesture(self):
         print('Make your move')
         move = input() # will have to verify (move matches name on the list)
         return move
