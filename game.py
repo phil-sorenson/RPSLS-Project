@@ -84,17 +84,17 @@ class Game:
     
     def gesture_battle(self, move_one, move_two): 
         
-        if move_one == 0:
-            if move_two == 2:
+        if move_one == "Rock":
+            if move_two == 'scissors':
                 print('Rock crushes scissors, rock wins')
                 return 'win'
-            if move_two == 'lizard':
+            elif move_two == 'lizard':
                 print('rock crushes lizard, rock wins')
                 return 'win'
-            if move_two == 'rock':
+            elif move_two == 'rock':
                 print('tie')
                 return 'tie'
-            if move_two == 'spock':
+            elif move_two == 'spock':
                 print('Spock vaporizes Rock, Spock Wins!')
                 return 'lose'
         
@@ -102,16 +102,16 @@ class Game:
             if move_two == 'scissors':
                 print('scissors cut paper, scissors win!')
                 return 'lose'
-            if move_two == 'lizard':
+            elif move_two == 'lizard':
                 print('lizard eats paper, lizard wins!')
                 return 'lose'
-            if move_two == 'rock':
+            elif move_two == 'rock':
                 print("paper covers rock, paper wins!")
                 return 'win'
-            if move_two == 'spock':
+            elif move_two == 'spock':
                 print('Paper disproves Spock, Paper wins!')
                 return 'win'
-            if move_two == 'paper':
+            elif move_two == 'paper':
                 print('Tie')
                 return
 
@@ -119,16 +119,16 @@ class Game:
             if move_two == 'rock':
                 print('Rock crushes scissors, Rock wins')
                 return 'lose'
-            if move_two == 'lizard':
+            elif move_two == 'lizard':
                 print('Scissors decapitate Lizard, Scissors win!')
                 return 'win'
-            if move_two == 'paper':
+            elif move_two == 'paper':
                 print("Scissors, cut paper, Scissors win!")
                 return 'win'
-            if move_two == 'spock':
+            elif move_two == 'spock':
                 print('Spock smashes scissors, Spock wins!')
                 return 'lose'
-            if move_two == 'scissors':
+            elif move_two == 'scissors':
                 print('Tie')
                 return 'tie'
             
@@ -136,16 +136,16 @@ class Game:
             if move_two == 'scissors':
                 print('scissors decapitates Lizard, scissors wins')
                 return 'lose'
-            if move_two == 'lizard':
+            elif move_two == 'lizard':
                 print('Tie')
                 return 'tie'
-            if move_two == 'rock':
+            elif move_two == 'rock':
                 print("Rock Crushes Lizard, Rock Wins!")
                 return 'lose'
-            if move_two == 'spock':
+            elif move_two == 'spock':
                 print('Lizard poisons Spock, Lizard Wins!')
                 return 'win'
-            if move_two == 'paper':
+            elif move_two == 'paper':
                 print('Lizard eats Paper, Lizard Wins!')
                 return 'win'
 
@@ -153,20 +153,104 @@ class Game:
             if move_two == 'scissors':
                 print('Spock smashes scissors, Spock Wins!')
                 return 'wins'
-            if move_two == 'lizard':
+            elif move_two == 'lizard':
                 print('lizard poisons Spock, lizard wins!')
                 return 'lose'
-            if move_two == 'rock':
+            elif move_two == 'rock':
                 print("Spock vaporizes Rock, Spock Wins!")
                 return 'win'
-            if move_two == 'spock':
+            elif move_two == 'spock':
                 print('Tie!')
                 return 'Tie'
-            if move_two == 'paper':
+            elif move_two == 'paper':
                 print('Paper disproves Spock, Paper wins!')
                 return 'lose'
-         
-       # ❗NEED TO CODE A WAY FOR PLAYER_TWO TO GET POINTS AS WELL❗
+         ###########################################################
+        if move_one == 0:
+            if move_two == 0:
+                print('tie')
+                return 'tie'
+            elif move_two == 1:
+                print('Paper covers Rock, Paper Wins!')
+                return 'lose'
+            elif move_two == 2:
+                print('Rock crushes scissors, rock wins')
+                return 'win'
+            elif move_two == 3:
+                print('Rock crushes Lizard, Rock wins!')
+                return 'win'
+            elif move_two == 4:
+                print('Spock vaporizes Rock, Spock Wins!')
+                return 'lose'
+
+        if move_one == 1:
+            if move_two == 0:
+                print("paper covers rock, paper wins!")
+                return 'win'
+            elif move_two == 2:
+                print('Scissors cut paper, scissors win!')
+                return 'lose'
+            elif move_two == 3:
+                print('lizard eats paper, lizard wins!')
+                return 'lose'
+            elif move_two == 4:
+                print('Paper disproves Spock, Paper wins!')
+                return 'win'
+            elif move_two == 1:
+                print('Tie')
+                return 'tie'
+       
+        if move_one == 2:
+            if move_two == 0:
+                print('Rock crushes scissors, Rock wins')
+                return 'lose'
+            elif move_two == 1:
+                print("Scissors, cut paper, Scissors win!")
+                return 'win'
+            elif move_two == 2:
+                print('Tie')
+                return 'tie'
+            elif move_two == 3:
+                print('Scissors decapitate Lizard, Scissors win!')
+                return 'win'
+            elif move_two == 4:
+                print('Spock smashes scissors, Spock wins!')
+                return 'lose'
+
+        if move_one == 3:
+            if move_two == 0:
+                print("Rock Crushes Lizard, Rock Wins!")
+                return 'lose'
+            elif move_two == 1:
+                print('Lizard eats Paper, Lizard Wins!')
+                return 'win'
+            elif move_two == 2:
+                print('scissors decapitates Lizard, scissors wins')
+                return 'lose'
+            elif move_two == 3:
+                print('Tie')
+                return 'tie'
+            elif move_two == 4:
+                print('Lizard poisons Spock, Lizard Wins!')
+                return 'win'
+
+        if move_one == 4:
+            if move_two == 0:
+                print("Spock vaporizes Rock, Spock Wins!")
+                return 'win'
+            elif move_two == 1:
+                print('Paper disproves Spock, Paper wins!')
+                return 'lose'        
+            if move_two == 2:
+                print('Spock smashes scissors, Spock Wins!')
+                return 'wins'
+            elif move_two == 3:
+                print('lizard poisons Spock, lizard wins!')
+                return 'lose'
+            elif move_two == 4:
+                print('Tie!')
+                return 'Tie'
+
        # while loop until someone hits two - announce winner
    
     def best_of_three(self):
