@@ -1,16 +1,22 @@
 from player import Player
 import random
+from time import sleep
 
 class AI(Player):
-    def __init__(self):
-        name = self.get_name()
-        super().__init__(name)
+    def __init__(self, name):
+        super().__init__()
+        self.score = 0
+        self.name = name
+        
+    # def get_name(self):
+    #     print('Give your ai opponent a name!')
+    #     name = input()
+    #     return name
 
-    def get_name(self):
-        print('Give your ai opponent a name!')
-        name = input()
-        return name
-
-    def gesture(self):
-        self.gesture # get length (.len) of list and get random number within that length (self.gesture[random number]--return move)
+    def randomized_gesture(self):
+        self.random_gesture = str(random.randint(0,4))
+        gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"]
+        sleep(1)
+        print(f'{self.name} has picked {gesture_list[int(self.random_gesture)]}')
+                             
 

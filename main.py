@@ -1,5 +1,5 @@
-# (5 points): As a developer, I want to make at least 10 commits with descriptive messages.
-# (15 points): As a developer, I want to find a way to properly incorporate inheritance into my game.
+# (5 points): As a developer, I want to make at least 10 commits with descriptive messages. ✅
+# (15 points): As a developer, I want to find a way to properly incorporate inheritance into my game. ✅ (Player class == is PARENT class and human & AI are == Child classes)
 # (5 points): As a developer, I want to account for and handle bad user input, ensuring that any user input is validated and reobtained if necessary.
 # (10 points): As a developer, I want to store all of the gesture options/choices in a list. I want to find a way to utilize the list of gestures within my code (display gesture options, assign player a gesture, etc).
 # NOTE: Do not use a Gesture class until you have reached MVP for all user stories and been checked off by an instructor!
@@ -9,11 +9,12 @@
 
 # Rock crushes Scissors Scissors cuts Paper Paper covers Rock Rock crushes Lizard Lizard poisons Spock Spock smashes Scissors Scissors decapitates Lizard Lizard eats Paper
 # Create seperate classes for each gesture in order to simplify battle (in each class identify what it loses to, wins to and ties with)
+
 from game import Game
+if __name__ == '__main__': # NOT SURE WHAT THIS IS--JUST COPIED FROM WALKTHROUGH
+    start_game = Game()
+    start_game.start_game()
 
-start_game = Game()
-
-start_game.start_game()
 
 
 # ❓How to use a integer as gesture choice instead of user having to type out 'gestures name'

@@ -13,7 +13,7 @@ class Human(Player):
     #     name = input()
     #     return name
 
-    def gesture(self):
+    def choose_gesture(self):
         print('Make your move')
         move = self.gesture[0,4] # will have to verify (move matches name on the list)
         return move

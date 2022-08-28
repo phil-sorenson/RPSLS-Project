@@ -1,7 +1,7 @@
-import time
-from ai import AI  # To delay the time between things that show on terminal
+from time import sleep # To delay time between lines in terminal
+from ai import AI  
 from human import Human
-
+from player import Player
 
 
 class Game:
@@ -10,8 +10,8 @@ class Game:
     # game is over (best out of 3)
     
     def __init__(self):
-        self.main_player = Human()
-        self.player_two = Human() or AI() # <-- ???
+        self.main_player = Human(Player)
+        self.player_two = Human(Player) or AI(Player) # <-- ???
         
         pass
        # QUESTION-- Not sure what to put in __init__ always 
@@ -19,7 +19,7 @@ class Game:
 
     def start_game(self):
         self.game_rules()
-        self.get_players()
+        self.get_opponent()
         self.get_gesture()
         self.gesture_battle()
         self.best_of_three()
@@ -29,15 +29,15 @@ class Game:
         
     def game_rules(self):
         print('Welcome to Rock, Paper, Scissor, Lizard, Spock!')
-        time.sleep(1)
+        sleep(1)
         print('Each match will be the best of 3 games!\nUse the number keys to enter your selection.')
-        time.sleep(1)
+        sleep(1)
         # print('1.Rock\n2.Paper\n3.Scissor\n4.Lizard\n5.Spock') <---❓ NOT SURE ABOUT HOW TO GO ABOUT THIS 
         # time.sleep(1)
         print('Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock')
 
         
-    def get_players (self):
+    def get_opponent (self):
         print('Would you like to play against a human or ai? ')
         self.player_two = input()
         checked_players = 0
@@ -54,9 +54,10 @@ class Game:
                 break
             else:
                 print('You didn\'t type in human or ai, try again!')
-                opponent = input()
+                self.player_two = input()
 
     def convert_gestures_to_number(self, number):
+        print('Choose 0 for Rock.\nChoose 1 for Paper.\nChoose 2 for Scissor.\nChoose 3 for Lizard.\nChoose 4 for Spock.')
         if (number == 0):
             return 'Rock'
         elif (number == 1):
@@ -75,16 +76,16 @@ class Game:
         # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
         # Function to announce winner ✅
     def get_gesture(self):
-        self.main_player_move = self.main_player.gesture()
-        self.player_two_move = self.player_two.gesture()
+        self.main_player_move = self.main_player.gesture[0,4] # ❓Not sure if this is how its done but trying it out
+        self.player_two_move = self.player_two.gesture[0,4]
         results = self.gesture_battle()
         return results
     
     
     def gesture_battle(self, move_one, move_two): 
         
-        if move_one == 'Rock':
-            if move_two == 'scissors':
+        if move_one == 0:
+            if move_two == 2:
                 print('Rock crushes scissors, rock wins')
                 return 'win'
             if move_two == 'lizard':
