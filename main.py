@@ -11,12 +11,19 @@
 # Create seperate classes for each gesture in order to simplify battle (in each class identify what it loses to, wins to and ties with)
 
 from game import Game
-if __name__ == '__main__': # NOT SURE WHAT THIS IS--JUST COPIED FROM WALKTHROUGH
-    start_game = Game()
-    start_game.start_game()
+# if __name__ == '__main__': # NOT SURE WHAT THIS IS--JUST COPIED FROM WALKTHROUGH
+run_game = Game()
+run_game.start_game()
 
 
 
-# ❓How to use a integer as gesture choice instead of user having to type out 'gestures name'
+# ❓How to use a integer(#) as gesture choice instead of user having to type out 'gestures name'
 # ❓How to go about "human" class's and "ai" class's __init__ function -- Inheritance needed? -- self.name = input() ??
-# ❓Figure out a way to allow user to pick between Human() or AI() and depending on respose, run it properly (aka randomly or manually)
+        # How to do name as an Input() along with inheritance
+# ❓(Game class) Figure out a way to allow user to pick between Human() or AI() depending on respose, run it properly (aka randomly or manually)
+# ❓(AI & Human class) If I were to call gesture list from Player class would it be; self.random_gesture = self.gesture(str(random.ranint(0,4)))❓
+
+
+
+
+

@@ -61,7 +61,7 @@ class Game:
         if (number == 0):
             return 'Rock'
         elif (number == 1):
-            return 'Paper'
+            return 'Paper'           #❓ DONT NEED SINCE ITS BEING CALLED FROM A LIST ❓❓
         elif (number == 2):
             return 'Scissor'
         elif (number == 3):
@@ -76,7 +76,7 @@ class Game:
         # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
         # Function to announce winner ✅
     def get_gesture(self):
-        self.main_player_move = self.main_player.gesture[0,4] # ❓Not sure if this is how its done but trying it out
+        self.main_player_move = self.main_player.gesture[0,4]   #❓<--- Not sure if [0,4] needed to be added ❓
         self.player_two_move = self.player_two.gesture[0,4]
         results = self.gesture_battle()
         return results
