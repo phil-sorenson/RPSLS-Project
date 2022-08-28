@@ -21,8 +21,9 @@ run_game.start_game()
 # ❓How to go about "human" class's and "ai" class's __init__ function -- Inheritance needed? -- self.name = input() ??
         # How to do name as an Input() along with inheritance
 # ❓(Game class) Figure out a way to allow user to pick between Human() or AI() depending on respose, run it properly (aka randomly or manually)
+        # When calling Human() & AI() in Game class do I need to put Player in the parameters since its inheritance?
 # ❓(AI & Human class) If I were to call gesture list from Player class would it be; self.random_gesture = self.gesture(str(random.ranint(0,4)))❓
-
+# ❓
 
 
 

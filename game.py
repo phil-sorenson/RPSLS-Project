@@ -3,6 +3,9 @@ from ai import AI
 from human import Human
 from player import Player
 
+       # Create score function ✅
+        # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
+        # Function to announce winner ✅
 
 class Game:
     # will need gestutres & what beats what (MIGHT BE IN PLAYER or AI)
@@ -10,8 +13,8 @@ class Game:
     # game is over (best out of 3)
     
     def __init__(self):
-        self.main_player = Human(Player)
-        self.player_two = Human(Player) or AI(Player) # <-- ???
+        self.main_player = Human()
+        self.player_two = Human() or AI() # <-- ???
         
         pass
        # QUESTION-- Not sure what to put in __init__ always 
@@ -70,20 +73,22 @@ class Game:
             return 'Spock'
         else:
             print('ERROR number, Try Again!')
-       
-        # Create ai class with player parent
-        # Create score function ✅
-        # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
-        # Function to announce winner ✅
+      
+    # Might need to add move_one & move_two to the get_gesture function
+    
     def get_gesture(self):
-        self.main_player_move = self.main_player.gesture[0,4]   #❓<--- Not sure if [0,4] needed to be added ❓
-        self.player_two_move = self.player_two.gesture[0,4]
+        self.main_player_gesture = self.main_player.move   #❓<--- Not sure if [0,4] needed to be added ❓
+        if self.player_two == AI():
+            self.player_two_gesture = self.player_two.randomized_gesture() # ❗Have to add a way for the player_two to be a human in get_gesture as well❗
+        elif self.player_two == Human():
+            self.player_two_gesture = self.player_two.move 
         results = self.gesture_battle()
         return results
     
     
-    def gesture_battle(self, move_one, move_two): 
-        
+    def gesture_battle(self): 
+        move_one = self.main_player_move # ❗
+        move_two = self.player_two_move # ❗
         if move_one == "Rock":
             if move_two == 'scissors':
                 print('Rock crushes scissors, rock wins')
@@ -187,6 +192,9 @@ class Game:
             if move_two == 0:
                 print("paper covers rock, paper wins!")
                 return 'win'
+            elif move_two == 1:
+                print('Tie')
+                return 'tie'
             elif move_two == 2:
                 print('Scissors cut paper, scissors win!')
                 return 'lose'
@@ -196,9 +204,6 @@ class Game:
             elif move_two == 4:
                 print('Paper disproves Spock, Paper wins!')
                 return 'win'
-            elif move_two == 1:
-                print('Tie')
-                return 'tie'
        
         if move_one == 2:
             if move_two == 0:
