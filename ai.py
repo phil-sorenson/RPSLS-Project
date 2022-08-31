@@ -1,18 +1,21 @@
 
 # CHILD CLASS
 
+from unicodedata import name
 from player import Player
 import random
 from time import sleep
 
 class AI(Player):
-    def __init__(self, name):         
-        self.name = name
+    def __init__(self):         
+        super().__init__()
+        self.name = ""
         self.score = 0
+        self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"] 
         
         
 
-    def randomized_gesture(self):
+    def ai_gesture(self):
         self.random_gesture = str(random.randint(0,4))  #❓If I were to call gesture list from Player class would it be; self.random_gesture = self.gesture(str(random.ranint(0,4)))❓
         gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"] # dont think this is needed since i could call "self.gesture" from Player class 
         sleep(1)

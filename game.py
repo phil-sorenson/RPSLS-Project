@@ -14,10 +14,11 @@ class Game:
     
     def __init__(self):
         self.main_player = Human('Main Player')
-        self.player_two = Human('Main Player') or AI('AI') # <-- ???
-        
+        self.player_two = Human('Player Two') or AI("Player Two")
+        # self.ai_player_two = AI("AI")
+        # self.human_player_two =  Human
         pass
-       # QUESTION-- Not sure what to put in __init__ always 
+       
 
 
     def start_game(self):
@@ -61,6 +62,7 @@ class Game:
             else:
                 print('You didn\'t type in human or ai, try again!')
                 self.player_two = input()
+        pass
 
     def convert_gestures_to_number(self, number):
         if (number == 0):
@@ -79,14 +81,17 @@ class Game:
     # Might need to add move_one & move_two to the get_gesture function
     
     def get_gesture(self):
-        self.main_player_gesture = self.main_player.choose_gesture.move   #❓<--- Not sure if [0,4] needed to be added ❓
+        input("Choose Your Gesture: " )
+        self.main_player_gesture = self.main_player.move   #❓<--- Not sure if [0,4] needed to be added ❓
+        print(f"{self.main_player.name} chose {self.main_player_gesture}")
         if self.player_two == AI():
-            self.player_two_gesture = self.player_two.randomized_gesture() # ❗Have to add a way for the player_two to be a human in get_gesture as well❗
+            self.player_two_gesture = self.player_two.random_gesture
+            print(f"{self.player_two.name} chose {self.player_two_gesture}") 
         elif self.player_two == Human():
-            self.player_two_gesture = self.player_two.choose_gesture.move 
+            self.player_two_gesture = self.player_two.ai.move 
         results = self.gesture_battle()
         return results
-    
+    # ❗Have to add a way for the player_two to be a human in get_gesture as well❗
     
     def gesture_battle(self): 
         move_one = self.main_player_move # ❗

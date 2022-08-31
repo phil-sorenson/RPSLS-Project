@@ -6,15 +6,19 @@ from player import Player
 from time import sleep
 class Human(Player):
 
-    def __init__(self, name):
+    def __init__(self,name):
         super().__init__()        # ❓ Question with name
         self.name = name
         self.score = 0
-       
-    def choose_gesture(self):
-        print('Make your move')
+        self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"]
+        
+    
+    
+    def human_gesture(self):
+        
+        self.move = str[0,4]
+
         sleep(1)
-        self.move = self.gesture_list[0,4]
         # will have to verify (move matches name on the list)
         
         
