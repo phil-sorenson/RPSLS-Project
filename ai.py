@@ -1,15 +1,16 @@
 
 # CHILD CLASS
 
+
 from unicodedata import name
 from player import Player
 import random
 from time import sleep
 
 class AI(Player):
-    def __init__(self):         
+    def __init__(self,name):         
         super().__init__()
-        self.name = ""
+        self.name = name
         self.score = 0
         self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"] 
         

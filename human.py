@@ -15,8 +15,9 @@ class Human(Player):
     
     
     def human_gesture(self):
+        print("Make Your Move!")
+        self.human_move = input()
         
-        self.move = str[0,4]
 
         sleep(1)
         # will have to verify (move matches name on the list)

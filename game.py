@@ -1,7 +1,7 @@
 from time import sleep # To delay time between lines in terminal
 from ai import AI  
 from human import Human
-from player import Player
+
 
        # Create score function ✅
         # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
@@ -13,10 +13,10 @@ class Game:
     # game is over (best out of 3)
     
     def __init__(self):
-        self.main_player = Human('Main Player')
-        self.player_two = Human('Player Two') or AI("Player Two")
+        self.main_player = Human("Main Player")
+        self.player_two = self.get_opponent() # ⬅️ Is this the correct way to go about this since self.player_two could be Human or AI
         # self.ai_player_two = AI("AI")
-        # self.human_player_two =  Human
+        # self.human_player_two =  Humanedite
         pass
        
 
@@ -51,18 +51,21 @@ class Game:
         while checked_players == 0:     # Edited opponent to be self.player_two so it calls from the AI() or Human() classes
             if self.player_two == 'human':
                 print('human opponent')
+                # Does🔻below🔻have to be an if condistional or while loop? in order to make self.player_two an AI or Human (if checked players==1 self.player_two = AI or Human)
                 checked_players = 1
-                self.player_two = Human(Player)
-                break
+                self.player_two = Human("Player Two") # ⬅️ Will the way I identified player_two there name, work and do you need a break or return❓❓
+                return self.player_two
             elif self.player_two == 'ai':
                 print('ai opponent')
                 checked_players = 1
-                self.player_two = AI(Player)   # <---❓IS THIS HOW TO RUN THESE OPPONENTS AS HUMAN OR AI❓
-                break
+                self.player_two = AI("AI")
+                return self.player_two
             else:
                 print('You didn\'t type in human or ai, try again!')
                 self.player_two = input()
         pass
+                
+                   
 
     def convert_gestures_to_number(self, number):
         if (number == 0):
