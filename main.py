@@ -23,7 +23,8 @@ run_game.start_game()
 # ❓(Game class) Figure out a way to allow user to pick between Human() or AI() depending on respose, run it properly (aka randomly or manually)
         # When calling Human() & AI() in Game class do I need to put Player in the parameters since its inheritance?
 # ❓(AI & Human class) If I were to call gesture list from Player class would it be; self.random_gesture = self.gesture(str(random.ranint(0,4)))❓
-# ❓
+# ❓(Game Class) Announce the winner for each round as opposed to just "rock wins", etc...
+# ❓Is it easier to do win_lose_pairs ??
 
 
 

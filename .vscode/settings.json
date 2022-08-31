@@ -1,0 +1,7 @@
+{
+    "python.autoComplete.extraPaths": [
+    
+    ],
+    "python.defaultInterpreterPath": "python",
+    "python.analysis.extraPaths": []
+}

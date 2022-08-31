@@ -13,8 +13,8 @@ class Game:
     # game is over (best out of 3)
     
     def __init__(self):
-        self.main_player = Human()
-        self.player_two = Human() or AI() # <-- ???
+        self.main_player = Human('Main Player')
+        self.player_two = Human('Main Player') or AI('AI') # <-- ???
         
         pass
        # QUESTION-- Not sure what to put in __init__ always 
@@ -33,12 +33,15 @@ class Game:
     def game_rules(self):
         print('Welcome to Rock, Paper, Scissor, Lizard, Spock!')
         sleep(1)
+        print("")
         print('Each match will be the best of 3 games!\nUse the number keys to enter your selection.')
         sleep(1)
-        # print('1.Rock\n2.Paper\n3.Scissor\n4.Lizard\n5.Spock') <---❓ NOT SURE ABOUT HOW TO GO ABOUT THIS 
-        # time.sleep(1)
+        print("0 = Rock\n1 = Paper\n2 = Scissors\n3 = Lizard\n4 = Spock")
+        sleep(1)
         print('Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock')
-
+        sleep(1)
+        print("")
+        
         
     def get_opponent (self):
         print('Would you like to play against a human or ai? ')
@@ -48,19 +51,18 @@ class Game:
             if self.player_two == 'human':
                 print('human opponent')
                 checked_players = 1
-                self.player_two = Human()
+                self.player_two = Human(Player)
                 break
             elif self.player_two == 'ai':
                 print('ai opponent')
                 checked_players = 1
-                self.player_two = AI()   # <---❓IS THIS HOW TO RUN THESE OPPONENTS AS HUMAN OR AI❓
+                self.player_two = AI(Player)   # <---❓IS THIS HOW TO RUN THESE OPPONENTS AS HUMAN OR AI❓
                 break
             else:
                 print('You didn\'t type in human or ai, try again!')
                 self.player_two = input()
 
     def convert_gestures_to_number(self, number):
-        print('Choose 0 for Rock.\nChoose 1 for Paper.\nChoose 2 for Scissor.\nChoose 3 for Lizard.\nChoose 4 for Spock.')
         if (number == 0):
             return 'Rock'
         elif (number == 1):
@@ -77,11 +79,11 @@ class Game:
     # Might need to add move_one & move_two to the get_gesture function
     
     def get_gesture(self):
-        self.main_player_gesture = self.main_player.move   #❓<--- Not sure if [0,4] needed to be added ❓
+        self.main_player_gesture = self.main_player.choose_gesture.move   #❓<--- Not sure if [0,4] needed to be added ❓
         if self.player_two == AI():
             self.player_two_gesture = self.player_two.randomized_gesture() # ❗Have to add a way for the player_two to be a human in get_gesture as well❗
         elif self.player_two == Human():
-            self.player_two_gesture = self.player_two.move 
+            self.player_two_gesture = self.player_two.choose_gesture.move 
         results = self.gesture_battle()
         return results
     
