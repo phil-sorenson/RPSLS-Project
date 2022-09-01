@@ -71,7 +71,7 @@ class Game:
     
     # ❓❓ Do i even need a get_gesture function or can i just use the AI and Human classes to do that and just call to it from the gesture_battle❓❓
     
-    #self.main_player.human_gesture()
+    # self.main_player.human_gesture()
     # if self.main_player.selevted_gesture == "Rock"
       
    
@@ -79,10 +79,10 @@ class Game:
     def get_gesture(self):
         self.main_player.human_gesture()
         print(f'{self.main_player.name} chose {self.main_player.selected_gesture}')                                                   
-        if self.player_two == AI():
+        if self.player_two == AI("Computer"):
             self.player_two.ai_gesture()
             print(f'{self.player_two.name} has picked {self.player_two.gesture_list[int(self.player_two.selected_gesture)]}')
-        elif self.player_two == Human():
+        elif self.player_two == Human("Player 2"):
             self.player_two.human_gesture()
             print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
         # results = self.gesture_battle()

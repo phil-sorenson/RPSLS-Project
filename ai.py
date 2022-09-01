@@ -2,7 +2,7 @@
 # CHILD CLASS
 
 
-from unicodedata import name
+
 from player import Player
 import random
 from time import sleep
@@ -17,8 +17,8 @@ class AI(Player):
         
 
     def ai_gesture(self):
-        self.selected_gesture = str(random.randint(0,4)) 
+        self.random_gesture = str(random.randint(0,4)) 
         sleep(1)
-        # print(f'{self.name} has picked {self.gesture_list[int(self.selected_gesture)]}')
+        print(f'{self.name} has picked {self.gesture_list[int(self.random_gesture)]}')
                                   
 
