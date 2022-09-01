@@ -10,8 +10,8 @@ from human import Human
 class Game:
     
     def __init__(self):
-        self.main_player = Human(input("Please enter your name: "))
-        self.player_two = " "  
+        self.main_player = Human("Main Player")
+        self.player_two = self.get_opponent() 
         pass
        
 
@@ -29,12 +29,14 @@ class Game:
         
     def game_rules(self):
         print('Welcome to Rock, Paper, Scissor, Lizard, Spock!')
-        sleep(1)
-        print("")
+        print('===================================================')
+        sleep(2)
         print('Each match will be the best of 3 games!\nUse the number keys to enter your selection.')
+        print(" ")
         sleep(1)
         print("Choose 0 for Rock.\nChoose 1 for Paper.\nChoose 2 for Scissors..\nChoose 3 for Lizard.\nChoose 4 for Spock.")
         sleep(1)
+        print(" ")
         print('Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock')
         sleep(1)
         print("")
@@ -46,20 +48,23 @@ class Game:
         checked_players = 0
         while checked_players == 0:     # Edited opponent to be self.player_two so it calls from the AI() or Human() classes
             if self.player_two == 'human':
-                print('human opponent')
-                # Does🔻below🔻have to be an if conditional or while loop? in order to make self.player_two an AI or Human (if checked players==1 self.player_two = AI or Human)
+                self.player_two = Human("Player 2")
+                print(f'{self.player_two.name} is your opponent')
                 checked_players = 1
-                self.player_two = Human("Player Two") # ⬅️ Will the way I identified player_two there name, work and do you need a break or return❓❓
                 return self.player_two
             elif self.player_two == 'ai':
-                print('ai opponent')
-                checked_players = 1
                 self.player_two = AI("Computer")
+                print(f'{self.player_two.name} is your opponent')
+                checked_players = 1
                 return self.player_two
             else:
                 print('You didn\'t type in human or ai, try again!')
                 self.player_two = input()
         pass
+                
+                                                    # ⬅️ Will the way I identified player_two there name, work and do you need a break or return❓❓
+                
+                
                 
                    
 
@@ -73,22 +78,21 @@ class Game:
 
     def get_gesture(self):
         self.main_player.human_gesture()
-        # print(f'{self.main_player.name} chose {self.main_player.selected_gesture}')                                                   
-
+        print(f'{self.main_player.name} chose {self.main_player.selected_gesture}')                                                   
         if self.player_two == AI():
             self.player_two.ai_gesture()
-            # print(f"{self.player_two.name} chose {self.player_two.selected_gesture}") 
+            print(f'{self.player_two.name} has picked {self.player_two.gesture_list[int(self.player_two.selected_gesture)]}')
         elif self.player_two == Human():
             self.player_two.human_gesture()
-            # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
-        results = self.gesture_battle()
-        return results
-    # ❗Have to add a way for the player_two to be a human in get_gesture as well❗
+            print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
+        # results = self.gesture_battle()
+        # return results
+   
     
     def gesture_battle(self): 
 
         if self.main_player.selected_gesture == 0:
-            print(f'{self.main_player.name} has selected Rock')
+            print(f'{self.main_player.name} has selected Rock')     #🆘🅿️ In the print() statement should I just do as sting ("has selected rock") or instantiate {self.main_player.selected_gesture}
             if self.player_two.selected_gesture == 0:
                 print('tie')
                 return 'tie'
@@ -200,7 +204,7 @@ class Game:
         elif self.player_two.score >= 2:
             print(f'{self.player_two.name} has won!')
         sleep(1)
-        input("Do you want to play again? y/n")
+        input("Do you want to play again? y/n ")
         if input == 'y':
             self.start_game()
         else:
