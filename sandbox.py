@@ -1,5 +1,6 @@
 
-gesture_list = {0:"rock", 1:"paper", 2:"scissors", 3:"lizard", 4:"spock"}
+
+
 # # Figure out how to compare selected/stored gestures and then a "Player wins statement..."
 #     # The way we have it typed out now in "gesture_battles" is only saying which gesture beats what but not 
 # Game()

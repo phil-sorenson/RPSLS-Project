@@ -7,29 +7,41 @@ from time import sleep
 class Human(Player):
 
     def __init__(self, name):
-        super().__init__()     
-        self.name = name
+        super().__init__(name) 
+        # self.name = name    
         # self.score = 0
         # self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"]
         
     
-    # storing the selected gesture:         # ←← Whats best way to go about this❓ selected_gesture = " " or return " "
+           
     def human_gesture(self):
         user_input = int(input("Please make your move: "))
-        if user_input == 0:
-            return "Rock"
-        elif user_input == 1:
-            return "Paper"
-        elif user_input == 2:
-            return "Scissors"
-        elif user_input == 3:
-            return "Lizard"
-        elif user_input == 4:
-            return "Spock"
-        else:
-            input("Invalid entry, Try again: ")
-            self.human_gesture()
         self.selected_gesture = self.gesture_list[user_input]
+        if user_input > 5:
+            print('Invalid number...Please try again! (0-4): ')
+            self.human_gesture()
+        elif user_input < 0:
+            print('Invalid number...Please try again! (0-4): ')
+            self.human_gesture()
+        if user_input == 0:
+            self.selected_gesture = "Rock"
+        elif user_input == 1:
+            self.selected_gesture = "Paper"
+        elif user_input == 2:
+            self.selected_gesture = "Scissors"
+        elif user_input == 3:
+            self.selected_gesture = "Lizard"
+        elif user_input == 4:
+            self.selected_gesture = "Spock"
+
+        
+
+
+
+            
+    
+           
+
         
        
         
