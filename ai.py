@@ -17,21 +17,19 @@ class AI(Player):
         
 # Not sure whether to put "int" or "str" and where
     def ai_gesture(self):
-        
         self.selected_gesture = str(random.choice(self.gesture_list))
         sleep(1)
         # print(f'{self.name} has picked {self.gesture_list[int(self.selected_gesture)]}')
         
+        if self.selected_gesture == 0:
+            self.selected_gesture == "Rock"
+        elif self.selected_gesture == 1:
+                self.selected_gesture == "Paper"
+        elif self.selected_gesture == 2:
+                self.selected_gesture == "Scissors"
+        elif self.selected_gesture == 3:
+                self.selected_gesture == "Lizard"
+        elif self.selected_gesture == 4:
+                self.selected_gesture == "Spock" 
                              
 
-
-    # if self.selected_gesture == 0:
-        #     str(random.choice(self.gesture_list) = "Rock"
-        # elif self.selected_gesture == 1:
-        #     self.selected_gesture = "Paper"
-        # elif self.selected_gesture == 2:
-        #     self.selected_gesture = "Scissors"
-        # elif self.selected_gesture == 3:
-        #     self.selected_gesture = "Lizard"
-        # elif self.selected_gesture == 4:
-        #     self.selected_gesture = "Spock" 

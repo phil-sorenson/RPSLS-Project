@@ -4,6 +4,7 @@
 
 from player import Player
 from time import sleep
+
 class Human(Player):
 
     def __init__(self, name):
@@ -13,28 +14,32 @@ class Human(Player):
         # self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"]
         
     
-           
+    # Have to code to account for user error: if they type letters instead of numbers #     
     def human_gesture(self):
         user_input = int(input("Please make your move: "))
+       
+        sleep(1)
         self.selected_gesture = self.gesture_list[user_input]
         if user_input > 5:
             print('Invalid number...Please try again! (0-4): ')
-            self.human_gesture()
+            self.human_gesture() 
         elif user_input < 0:
             print('Invalid number...Please try again! (0-4): ')
             self.human_gesture()
         if user_input == 0:
-            self.selected_gesture = "Rock"
+            self.selected_gesture == "Rock"
         elif user_input == 1:
-            self.selected_gesture = "Paper"
+            self.selected_gesture == "Paper"
         elif user_input == 2:
-            self.selected_gesture = "Scissors"
+            self.selected_gesture == "Scissors"
         elif user_input == 3:
-            self.selected_gesture = "Lizard"
+            self.selected_gesture == "Lizard"
         elif user_input == 4:
-            self.selected_gesture = "Spock"
-
+            self.selected_gesture == "Spock"
         
+        
+
+        # After player makes selection, we need to find a way for code to compare to the outcomes
 
 
 
