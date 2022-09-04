@@ -1,12 +1,14 @@
 from time import sleep      # To delay time between lines in terminal
 from ai import AI  
 from human import Human
-import random
 
 
-       # Create score function ✅
-        # Call rounds (best of 3) --use inheritence (2 gestures, display winner/give points to,)
-        # Function to announce winner ✅
+# TODO:  1. Edit the invalid number & word response in Human 'user_input'-- create a Error for if player types in a string instead of numbers
+       # 2. Opponent name prints twice to terminal after an error was made--need to fix
+       # 3. Find a way to print gesture selection to terminal immediately after "Please Make Move:" instead of all at once 
+       # 4. Find a way to delay inbetween each gesture rule in game_rules
+
+      
 
 class Game:
     
@@ -34,11 +36,12 @@ class Game:
         print('===================================================')
         sleep(1)
         print('Each match will be the best of 3 games!\nUse the number keys to enter your selection.')
-        sleep(2)
-        print(" ")
+        print("     ")
+        print("")
+        sleep(1)
         print('Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock')
-        sleep(2)
         print(" ")
+        sleep(1)
         print("Choose 0 for Rock.\nChoose 1 for Paper.\nChoose 2 for Scissors.\nChoose 3 for Lizard.\nChoose 4 for Spock.")
         sleep(1)
         print("")
@@ -48,7 +51,7 @@ class Game:
         print('Would you like to play against a human or ai? ')
         self.input_opponent = input()
         checked_players = 0
-        while checked_players == 0:     # Edited opponent to be self.player_two so it calls from the AI() or Human() classes
+        while checked_players == 0:    
             if self.input_opponent == 'human':
                 self.player_two = Human("Player 2")
                 print(f'{self.player_two.name} is your opponent')
@@ -64,7 +67,7 @@ class Game:
             else:
                 print('You didn\'t type in human or ai, try again!')
                 self.get_opponent()  
-                    
+                # prints opponent name twice after mistake was made--need to fix    
         pass
                 
                                                     
@@ -74,10 +77,7 @@ class Game:
                    
 
     
-    # ❓❓ Do i even need a get_gesture function or can i just use the AI and Human classes to do that and just call to it from the gesture_battle❓❓
-    
-    # self.main_player.human_gesture()
-    # if self.main_player.selevted_gesture == "Rock"
+   
       
    
 
@@ -281,26 +281,23 @@ class Game:
                 print(f'{self.player_two.name} wins!')
                 print('')
                 self.round_outcome == 'lose'
-                
+        self.best_of_three()
 
        # while loop until someone hits two - announce winner
    
     def best_of_three(self):
-                                  # <--- QQQ❓: Would this need to call 'get_gesture' or 'gesture_battle'?
+                                        # <--- QQQ❓: Would this need to call 'get_gesture' or 'gesture_battle'?
         if self.round_outcome == 'win':
             self.main_player.score += 1
         elif self.round_outcome == 'lose':
             self.player_two.score += 1
-        while self.main_player.score < 2 or self.player_two.score < 2:
+        if self.main_player.score < 2 or self.player_two.score < 2:
             self.gesture_battle()
-            if self.main_player.score >= 2:
+        if self.main_player.score >= 2:
                 self.announce_winner()
-                break
-            if self.player_two.score >= 2:
+        elif self.player_two.score >= 2:
                 self.announce_winner()
-                break
-            
-
+                
 
 
     def announce_winner(self):
