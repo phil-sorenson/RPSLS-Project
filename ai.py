@@ -15,11 +15,9 @@ class AI(Player):
         # self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"] 
         
         
-# Not sure whether to put "int" or "str" and where
+
     def ai_gesture(self):
         self.selected_gesture = str(random.choice(self.gesture_list))
-        sleep(1)
-        # print(f'{self.name} has picked {self.gesture_list[int(self.selected_gesture)]}')
         
         if self.selected_gesture == 0:
             self.selected_gesture == "Rock"

@@ -17,7 +17,7 @@ class Human(Player):
     def human_gesture(self):
         while True:
             try:
-                user_input = int(input("Make your move!: "))
+                user_input = int(input("Make your move: "))
                 if user_input not in range(5):
                     raise ValueError
                 break
@@ -25,8 +25,6 @@ class Human(Player):
                 print("Invalid input, Try Again! ")
             
         self.selected_gesture = self.gesture_list[user_input]
-        
-        
         if user_input == 0:
             self.selected_gesture == "Rock"
         elif user_input == 1:
@@ -38,9 +36,10 @@ class Human(Player):
         elif user_input == 4:
             self.selected_gesture == "Spock"
         
+        print(f'{self.name} chose {self.selected_gesture}')
         
 
-       
+       # When main_player is going to win the round, it double prints to terminal before telling me the winner 
 
 
 
