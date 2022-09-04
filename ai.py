@@ -30,4 +30,4 @@ class AI(Player):
         elif self.selected_gesture == 4:
                 self.selected_gesture == "Spock" 
                              
-
+        print(f'{self.name} chose {self.selected_gesture}')
