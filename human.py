@@ -17,9 +17,9 @@ class Human(Player):
     # Have to code to account for user error: if they type letters instead of numbers #     
     def human_gesture(self):
         user_input = int(input("Please make your move: "))
-       
         sleep(1)
         self.selected_gesture = self.gesture_list[user_input]
+        
         if user_input > 5:
             print('Invalid number...Please try again! (0-4): ')
             self.human_gesture() 
