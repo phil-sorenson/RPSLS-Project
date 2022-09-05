@@ -3,10 +3,11 @@ from ai import AI
 from human import Human
 
 
-# TODO:  1. Edit the invalid number & word response in Human 'user_input'-- create a Error for if player types in a string instead of numbers
-       # 2. Opponent name prints twice to terminal after an error was made--need to fix
-       # 3. Find a way to print gesture selection to terminal immediately after "Please Make Move:" instead of all at once 
-       # 4. Find a way to delay inbetween each gesture rule in game_rules
+# TODO:  1. Edit the invalid number & word response in Human 'user_input'-- create a Error for if player types in a string instead of numbers✅
+       # 2. Opponent name prints twice to terminal after an error was made--need to fix 
+       # 3. Find a way to print gesture selection to terminal immediately after "Please Make Move:" instead of all at once✅ 
+       # 4. Find a way to delay inbetween each gesture rule in game_rules✅
+       # 5. Finish Scoring function! 
 
 # QUESTIONS: ▫️ If you "run" python file and the terminal is stuck on an "input" line how do you get out of it and stop running? 
       
@@ -21,11 +22,12 @@ class Game:
 
 
     def start_game(self):
-        self.game_rules()
+        # self.game_rules()
         self.get_opponent()
-        # self.get_gesture()
         self.gesture_battle()
         self.best_of_three()
+        # self.announce_winner()
+        # self.get_winner()
     
     
         # self.main_player = Human()
@@ -40,27 +42,36 @@ class Game:
         print("")
         sleep(.5)
         print('Use the number keys to enter your selection.')
+        sleep(.5)
+        print('Choose 0 for Rock')
+        sleep(.5)
+        print('Choose 1 for Paper.')
+        sleep(.5)
+        print('Choose 2 for Scissors.')
+        sleep(.5)
+        print('Choose 3 for Lizard.')
+        sleep(.5)
+        print('Choose 4 for Spock.')
         sleep(1)
-        print("Choose 0 for Rock.\nChoose 1 for Paper.\nChoose 2 for Scissors.\nChoose 3 for Lizard.\nChoose 4 for Spock.")
         print("")
         print('Rock crushes Scissors')
-        sleep(1)
+        sleep(.5)
         print('Scissors cuts Paper')
-        sleep(1)
+        sleep(.5)
         print('Paper covers Rock')
-        sleep(1)
+        sleep(.5)
         print('Rock crushes Lizard')
-        sleep(1)
+        sleep(.5)
         print('Lizard poisons Spock')
-        sleep(1)
+        sleep(.5)
         print('Spock smashes Scissors')
-        sleep(1)
+        sleep(.5)
         print('Scissors decapitates Lizard')
-        sleep(1)
+        sleep(.5)
         print('Lizard eats Paper')
-        sleep(1)
+        sleep(.5)
         print('Paper disproves Spock')
-        sleep(1)
+        sleep(.5)
         print('Spock vaporizes Rock')
         print(" ")
         sleep(1)
@@ -86,48 +97,25 @@ class Game:
                
             else:
                 print('You didn\'t type in human or ai, try again!')
-                self.get_opponent()  
+                self.input_opponent = input()  
                 # prints opponent name twice after mistake was made--need to fix    
-        pass
-                
-                                                    
-                
-                
-                
-                   
-
+        
     
-   
-      
-   
-
-    # def get_gesture(self):
-    #     self.main_player.human_gesture()
-    #     print(f'{self.main_player.name} chose {self.main_player.selected_gesture}')                                                   
-    #     if self.player_two == AI("Computer"):
-    #         self.player_two.ai_gesture()
-    #         print(f'{self.player_two.name} has picked {self.player_two.gesture_list[int(self.player_two.selected_gesture)]}')
-    #     elif self.player_two == Human("Player 2"):
-    #         self.player_two.human_gesture()
-    #         print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
-    #     # results = self.gesture_battle()
-    #     # return results
-    
-    
+        
+    # def get_winner(self):
+    #     self.round_outcome = ''
+    #     
+            
    
 
         
     
     def gesture_battle(self):
-        self.round_outcome = ""        # self.main_player_wins = self.main_player.score += 1
-        
         self.main_player.human_gesture()
         if self.input_opponent == 'human':
             self.player_two.human_gesture()  
         elif self.input_opponent == 'ai': 
             self.player_two.ai_gesture()
-
-        
         
         
 
@@ -139,36 +127,36 @@ class Game:
             self.gesture_battle()
 
         if self.main_player.selected_gesture == "Rock":
-            # print(f'{self.main_player.name} chose {self.main_player.selected_gesture}')
             if self.player_two.selected_gesture == "Paper":
-                # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
-                sleep(1)
+                sleep(.5)
                 print(f'{self.player_two.name} wins! ')
                 print('')
-                self.round_outcome == 'lose'
-                sleep(1)
+                self.main_player.round_outcome = 'lose'
+                pass
+                sleep(.5)
             elif self.player_two.selected_gesture == "Scissors":
-                # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
+                self.main_player.round_outcome = 'win'
+                pass
+                sleep(.5)
             elif self.player_two.selected_gesture == "Lizard":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
+                self.main_player.round_outcome == 'win'
             elif self.player_two.selected_gesture == "Spock":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'
+                self.main_player.round_outcome == 'lose'
 
 
         if self.main_player.selected_gesture == "Paper":
@@ -180,31 +168,31 @@ class Game:
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'   
+                self.main_player.round_outcome == 'win'   
             elif self.player_two.selected_gesture == "Scissors":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'
+                self.main_player.round_outcome == 'lose'
             elif self.player_two.selected_gesture == "Lizard":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'
+                self.main_player.round_outcome == 'lose'
             elif self.player_two.selected_gesture == "Spock":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
+                self.main_player.round_outcome == 'win'
                 
 
-        if self.main_player.selected_gesture == "Scissor":
+        if self.main_player.selected_gesture == "Scissors":
             # print(f'{self.main_player.name} chose {self.main_player.selected_gesture}')
             sleep(1)
             if self.player_two.selected_gesture == "Rock":
@@ -213,28 +201,28 @@ class Game:
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'    
+                self.main_player.round_outcome == 'lose'    
             elif self.player_two.selected_gesture == "Paper":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
+                self.main_player.round_outcome == 'win'
             elif self.player_two.selected_gesture == "Lizard":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
+                self.main_player.round_outcome == 'win'
             elif self.player_two.selected_gesture == "Spock":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'
+                self.main_player.round_outcome == 'lose'
 
 
         if self.main_player.selected_gesture == "Lizard":
@@ -246,28 +234,28 @@ class Game:
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'    
+                self.main_player.round_outcome == 'lose'    
             elif self.player_two.selected_gesture == "Paper":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
-            elif self.player_two.selected_gesture == "Scissor":
+                self.main_player.round_outcome == 'win'
+            elif self.player_two.selected_gesture == "Scissors":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'
+                self.main_player.round_outcome == 'lose'
             elif self.player_two.selected_gesture == "Spock":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
+                self.main_player.round_outcome == 'win'
 
 
         if self.main_player.selected_gesture == "Spock":
@@ -279,58 +267,65 @@ class Game:
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'    
+                self.main_player.round_outcome == 'win'    
             elif self.player_two.selected_gesture == "Paper":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'
+                self.main_player.round_outcome == 'lose'
             elif self.player_two.selected_gesture == "Scissors":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.main_player.name} wins!')
                 print('')
-                self.round_outcome == 'win'
+                self.main_player.round_outcome == 'win'
             elif self.player_two.selected_gesture == "Lizard":
                 # print(f'{self.player_two.name} chose {self.player_two.selected_gesture}')
                 print()
                 sleep(1)
                 print(f'{self.player_two.name} wins!')
                 print('')
-                self.round_outcome == 'lose'
-        self.best_of_three()
+                self.main_player.round_outcome == 'lose'
+        
 
        # while loop until someone hits two - announce winner
    
     def best_of_three(self):
-                                        # <--- QQQ❓: Would this need to call 'get_gesture' or 'gesture_battle'?
-        if self.round_outcome == 'win':
-            self.main_player.score += 1
-        elif self.round_outcome == 'lose':
+
+        if self.main_player.round_outcome == 'win':
+            self.main_player.score += 1  
+        elif self.main_player.round_outcome == 'lose':
             self.player_two.score += 1
-        if self.main_player.score < 2 or self.player_two.score < 2:
+
+        if self.main_player.score <= 1 and self.player_two.score <= 1:
             self.gesture_battle()
-        if self.main_player.score >= 2:
-                self.announce_winner()
-        elif self.player_two.score >= 2:
-                self.announce_winner()
-                
-
-
-    def announce_winner(self):
-        if self.main_player.score  >= 2:
-            print(f'{self.main_player.name} has won the game!')
-        elif self.player_two.score >= 2:
-            print(f'{self.player_two.name} has won the game!')
-        sleep(1)
-        input("Do you want to play again? y/n ")
+            if self.main_player.score == 2:
+                print(f'{self.main_player.name} has won the game! ')
+                sleep(.5)
+            elif self.player_two.score == 2:
+                print(f'{self.player_two.name} has won the game! ')
+                sleep(.5)
+        input('Do you want to play again? y/n ')
         if input == 'y':
             self.start_game()
         else:
-            print("Thanks for Playing! ")
+            print('Thanks For Playing! ')        
+
+
+    # def announce_winner(self):
+    #     if self.main_player.score  == 2:
+    #         print(f'{self.main_player.name} has won the game!')
+    #     elif self.player_two.score == 2:
+    #         print(f'{self.player_two.name} has won the game!')
+    #     sleep(1)
+    #     input("Do you want to play again? y/n ")
+    #     if input == 'y':
+    #         self.start_game()
+    #     else:
+    #         print("Thanks for Playing! ")
         
         
 

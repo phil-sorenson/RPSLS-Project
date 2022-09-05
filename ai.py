@@ -12,7 +12,7 @@ class AI(Player):
         super().__init__(name)
         # self.name = name
         # self.score = 0
-        # self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"] 
+        # self.gesture_list = ["Rock", "Paper", "Scissors", "Lizard", "Spock"] 
         
         
 
@@ -31,3 +31,4 @@ class AI(Player):
                 self.selected_gesture == "Spock" 
                              
         print(f'{self.name} chose {self.selected_gesture}')
+        sleep(1)

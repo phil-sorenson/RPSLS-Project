@@ -37,7 +37,7 @@ class Human(Player):
             self.selected_gesture == "Spock"
         
         print(f'{self.name} chose {self.selected_gesture}')
-        
+        sleep(1)
 
        # When main_player is going to win the round, it double prints to terminal before telling me the winner 
 
