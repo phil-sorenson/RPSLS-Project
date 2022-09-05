@@ -116,6 +116,8 @@ class Game:
             self.player_two.human_gesture()  
         elif self.input_opponent == 'ai': 
             self.player_two.ai_gesture()
+
+
         
         
 
@@ -289,28 +291,34 @@ class Game:
                 print(f'{self.player_two.name} wins!')
                 print('')
                 self.main_player.round_outcome = 'lose'
-        
 
-       # while loop until someone hits two - announce winner
-   
-    def best_of_three(self):
-# TODO: # Figure out why stystem bypasses the scoring points function after the first round points have been scored and given to winning player
         
         if self.main_player.round_outcome == 'win':
             self.main_player.score += 1  
         elif self.main_player.round_outcome == 'lose':
             self.player_two.score += 1
+         
+       
+       # while loop until someone hits two - announce winner
+   
+    def best_of_three(self):
+# TODO: # Figure out why stystem bypasses the scoring points function after the first round points have been scored and given to winning player
+        
+        # if self.main_player.round_outcome == 'win':
+        #     self.main_player.score += 1  
+        # elif self.main_player.round_outcome == 'lose':
+        #     self.player_two.score += 1
 
-        if self.main_player.score <= 1 or self.player_two.score <= 1:
+        while self.main_player.score <= 1 and self.player_two.score <= 1:
             self.gesture_battle()
-            if self.main_player.score == 2:
-                print(f'{self.main_player.name} has won the game! ')
-                sleep(.5)
-            elif self.player_two.score == 2:
-                print(f'{self.player_two.name} has won the game! ')
-                sleep(.5)
-        input('Do you want to play again? y/n ')
-        if input == 'y':
+        if self.main_player.score == 2:
+            print(f'{self.main_player.name} has won the game! ')
+            sleep(.5)
+        elif self.player_two.score == 2:
+            print(f'{self.player_two.name} has won the game! ')
+            sleep(.5)
+        play_again = input('Do you want to play again? y/n ')
+        if play_again == 'y':
             self.start_game()
         else:
             print('Thanks For Playing! ')        
