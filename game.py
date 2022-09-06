@@ -3,11 +3,9 @@ from ai import AI
 from human import Human
 
 
-# TODO:  1. Edit the invalid number & word response in Human 'user_input'-- create a Error for if player types in a string instead of numbers✅
-       # 2. Opponent name prints twice to terminal after an error was made--need to fix 
-       # 3. Find a way to print gesture selection to terminal immediately after "Please Make Move:" instead of all at once✅ 
-       # 4. Find a way to delay inbetween each gesture rule in game_rules✅
-       # 5. Finish Scoring function! 
+
+       
+      
 
 # QUESTIONS: ▫️ If you "run" python file and the terminal is stuck on an "input" line how do you get out of it and stop running? 
       
@@ -26,8 +24,7 @@ class Game:
         self.get_opponent()
         self.gesture_battle()
         self.best_of_three()
-        # self.announce_winner()
-        # self.get_winner()
+        
     
     
         # self.main_player = Human()
@@ -98,17 +95,8 @@ class Game:
             else:
                 print('You didn\'t type in human or ai, try again!')
                 self.input_opponent = input()  
-                # prints opponent name twice after mistake was made--need to fix    
-        
-    
-        
-    # def get_winner(self):
-    #     self.round_outcome = ''
-    #     
+                # prints opponent name twice after mistake was made--need to fix  
             
-   
-
-        
     
     def gesture_battle(self):
         self.main_player.human_gesture()
@@ -117,9 +105,6 @@ class Game:
         elif self.input_opponent == 'ai': 
             self.player_two.ai_gesture()
 
-
-        
-        
 
         if self.main_player.selected_gesture == self.player_two.selected_gesture:
             print('It\'s A Tie, Play again!')
@@ -314,9 +299,11 @@ class Game:
         if self.main_player.score == 2:
             print(f'{self.main_player.name} has won the game! ')
             sleep(.5)
+            print('')
         elif self.player_two.score == 2:
             print(f'{self.player_two.name} has won the game! ')
             sleep(.5)
+            print('')
         play_again = input('Do you want to play again? y/n ')
         if play_again == 'y':
             self.start_game()
@@ -324,17 +311,6 @@ class Game:
             print('Thanks For Playing! ')        
 
 
-    # def announce_winner(self):
-    #     if self.main_player.score  == 2:
-    #         print(f'{self.main_player.name} has won the game!')
-    #     elif self.player_two.score == 2:
-    #         print(f'{self.player_two.name} has won the game!')
-    #     sleep(1)
-    #     input("Do you want to play again? y/n ")
-    #     if input == 'y':
-    #         self.start_game()
-    #     else:
-    #         print("Thanks for Playing! ")
         
         
 

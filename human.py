@@ -13,7 +13,7 @@ class Human(Player):
         # self.gesture_list = ["Rock", "Paper", "Scissor", "Lizard", "Spock"]
         
     
-    # Have to code to account for user error: if they type letters instead of numbers #     
+        
     def human_gesture(self):
         while True:
             try:
@@ -39,7 +39,7 @@ class Human(Player):
         print(f'{self.name} chose {self.selected_gesture}')
         sleep(1)
 
-       # When main_player is going to win the round, it double prints to terminal before telling me the winner 
+        
 
 
 
@@ -56,7 +56,6 @@ class Human(Player):
             
        
        
-       #❗ # WHEN WE LEFT: Thinking out how we would code out getting the geste (in human_gasture or get_gesture) and how that would affect the name that prints to terminal...❗
 
         
        
