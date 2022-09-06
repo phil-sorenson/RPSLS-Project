@@ -20,7 +20,7 @@ class Game:
 
 
     def start_game(self):
-        # self.game_rules()
+        self.game_rules()
         self.get_opponent()
         self.gesture_battle()
         self.best_of_three()
@@ -284,7 +284,7 @@ class Game:
             self.player_two.score += 1
          
        
-       # while loop until someone hits two - announce winner
+     
    
     def best_of_three(self):
 # TODO: # Figure out why stystem bypasses the scoring points function after the first round points have been scored and given to winning player
