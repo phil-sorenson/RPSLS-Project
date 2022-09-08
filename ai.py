@@ -16,7 +16,7 @@ class AI(Player):
         
         
 
-    def ai_gesture(self):
+    def choose_gesture(self):
         self.selected_gesture = str(random.choice(self.gesture_list))
         
         if self.selected_gesture == 0:

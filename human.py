@@ -14,7 +14,7 @@ class Human(Player):
         
     
         
-    def human_gesture(self):
+    def choose_gesture(self):
         while True:
             try:
                 user_input = int(input("Make your move: "))

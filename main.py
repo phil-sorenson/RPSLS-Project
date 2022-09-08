@@ -17,16 +17,6 @@ run_game.start_game()
 
 
 
-# ❓How to use a integer(#) as gesture choice instead of user having to type out 'gestures name'
-# ❓How to go about "human" class's and "ai" class's __init__ function -- Inheritance needed? -- self.name = input() ??
-        # How to do name as an Input() along with inheritance
-# ❓❓(Game class) Depending on respose (Human or AI opponent), run it properly (aka randomly or manually) and how to go about the Name
-        # When calling Human() & AI() in Game class do I need to put Player in the parameters since its inheritance?❓
-# ❓(AI & Human class) If I were to call gesture list from Player class instead of just putting the list in AI & Human class, would it be; self.random_gesture = self.gesture(str(random.ranint(0,4)))❓
-# ❓(Game Class) Announce the winner for each round as opposed to just "rock wins", etc...
-# ❓Is it easier to do win_lose_pairs ??
-# ❓Where/How should I access 'Player' in the game class?
-# ❓
 
 
 
